@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuwari-Secure — 付箋のように画面に浮かせるスクリーンショットアプリ（企業向けセキュア版）</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans JP', 'Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f4f7fb',
+                            100: '#e8eef6',
+                            200: '#cbdbe9',
+                            300: '#9dbcd6',
+                            400: '#6898be',
+                            500: '#467ca4',
+                            600: '#356389',
+                            700: '#2c506f',
+                            800: '#27445c',
+                            900: '#243b4f',
+                            950: '#142233',
+                        },
+                        slate: {
+                            950: '#0b0f19',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Animations & Effects */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+
+        .glass-card {
+            background: rgba(20, 30, 48, 0.4);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glow-bg {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(70, 124, 164, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+            filter: blur(40px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
+
+    <!-- Glowing Background Orbs -->
+    <div class="glow-bg top-[-10%] left-[-10%] animate-[pulseGlow_8s_infinite]"></div>
+    <div class="glow-bg bottom-[-10%] right-[-10%] animate-[pulseGlow_12s_infinite_2s]"></div>
+
+    <!-- Navigation -->
+    <nav class="relative z-10 max-w-6xl mx-auto px-6 py-8 flex items-center justify-between border-b border-white/5">
+        <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-brand-500 flex items-center justify-center shadow-lg shadow-brand-500/20 border border-brand-400/30">
+                <i data-lucide="layers" class="w-5 h-5 text-white"></i>
+            </div>
+            <span class="font-display font-bold text-xl tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">Fuwari-Secure</span>
+        </div>
+        <div class="flex items-center gap-6">
+            <!-- Language Switcher -->
+            <div class="flex items-center gap-1.5 bg-white/5 rounded-lg p-1 border border-white/5 text-xs font-medium">
+                <a href="../" class="px-2.5 py-1 rounded text-slate-400 hover:text-white transition-colors">EN</a>
+                <span class="px-2.5 py-1 rounded bg-brand-500 text-white shadow">JA</span>
+            </div>
+            <a href="https://github.com/tnaoyak/Fuwari-Secure" target="_blank" class="text-slate-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
+                <i data-lucide="github" class="w-4 h-4"></i> GitHub
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative z-10 max-w-4xl mx-auto px-6 pt-20 pb-16 text-center">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs font-semibold uppercase tracking-wider mb-8 animate-fade-in-up">
+            <i data-lucide="shield-check" class="w-3.5 h-3.5"></i> 企業向けセキュア版
+        </div>
+        
+        <h1 class="font-display font-extrabold text-4xl md:text-5xl tracking-tight text-white mb-6 animate-fade-in-up delay-100 leading-[1.2]">
+            スクリーンショットを、<br>
+            <span class="bg-gradient-to-r from-brand-400 via-brand-300 to-slate-200 bg-clip-text text-transparent">付箋のように画面に浮かせる。</span>
+        </h1>
+        
+        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-12 font-light leading-relaxed animate-fade-in-up delay-200">
+            Fuwari-Secureは、厳格な企業セキュリティポリシーに対応した、プライバシー最優先のFuwariフォーク版です。外部へのアップロード機能を完全に排除し、一切のデータをMacの外に送信しません。
+        </p>
+
+        <!-- CTA Cards Grid -->
+        <div class="grid md:grid-cols-5 gap-6 max-w-3xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
+            <!-- Main Download CTA -->
+            <div class="md:col-span-3 glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6">
+                        <i data-lucide="download" class="w-6 h-6 text-brand-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-2">Fuwari-Secure をダウンロード</h3>
+                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">macOS用の完全オフライン・スタンドアロン版。無料でオープンソースとして公開されています。</p>
+                </div>
+                <a href="https://github.com/tnaoyak/Fuwari-Secure/releases/download/v1.0.0/Fuwari-Secure.dmg" class="w-full py-3.5 px-6 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-medium text-center shadow-lg shadow-brand-500/20 border border-brand-400/20 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]">
+                    Download .dmg <span class="text-white/60 text-xs font-normal">(v1.0.0)</span>
+                </a>
+            </div>
+
+            <!-- Security Assurance Card -->
+            <div class="md:col-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between border-white/5">
+                <div>
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
+                        <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-white mb-2">100% ローカル＆安全</h3>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>Gyazoへの送信機能を削除</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>OAuth連携機能を削除</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>一切の外部通信を行いません</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="pt-6 border-t border-white/5 text-xs text-slate-500">
+                    厳格な企業のデータ保護ポリシーに完全に適合します。
+                </div>
+            </div>
+        </div>
+
+        <!-- Interactive Demo GIF Section (Mac Window Frame) -->
+        <div class="max-w-3xl mx-auto animate-fade-in-up delay-300">
+            <div class="rounded-2xl border border-white/10 bg-slate-900/40 p-2 shadow-2xl shadow-brand-500/5">
+                <!-- Mac Window Title Bar -->
+                <div class="flex items-center justify-between px-4 py-3 bg-slate-950/80 rounded-t-xl border-b border-white/5">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3.5 h-3.5 rounded-full bg-red-500/80 border border-red-600/30"></span>
+                        <span class="w-3.5 h-3.5 rounded-full bg-yellow-500/80 border border-yellow-600/30"></span>
+                        <span class="w-3.5 h-3.5 rounded-full bg-green-500/80 border border-green-600/30"></span>
+                    </div>
+                    <span class="text-xs text-slate-400 font-mono font-medium">Fuwari-Secure デモ</span>
+                    <div class="w-12"></div> <!-- Spacer for symmetry -->
+                </div>
+                <!-- GIF Content -->
+                <div class="relative overflow-hidden rounded-b-xl bg-slate-950">
+                    <img src="https://fuwari-app.com/images/fuwari_demo_1.0.0.gif" alt="Fuwari-Secure デモ" class="w-full h-auto object-cover opacity-90 hover:opacity-100 transition-opacity duration-300">
+                </div>
+            </div>
+            <p class="text-center text-slate-500 text-xs mt-4 italic">
+                *Fuwari-Secureは、Fuwariの直感的で優れた「画面に浮かせる」機能をすべて引き継いでいます。
+            </p>
+        </div>
+    </header>
+
+    <!-- Installation & Troubleshooting Section -->
+    <section class="relative z-10 max-w-3xl mx-auto px-6 py-16 animate-fade-in-up delay-400">
+        <h2 class="font-display font-bold text-2xl md:text-3xl text-white mb-8 flex items-center gap-3">
+            <i data-lucide="terminal" class="w-7 h-7 text-brand-400"></i> インストールと起動手順
+        </h2>
+
+        <div class="space-y-6">
+            <!-- Step 1 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-sm font-bold text-brand-400 shrink-0">1</div>
+                <div>
+                    <h4 class="font-bold text-white mb-1">アプリケーションフォルダへ移動</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">ダウンロードした <code>Fuwari-Secure.dmg</code> ファイルをダブルクリックして開き、アプリのアイコンを <strong>アプリケーション（Applications）</strong> フォルダにドラッグ＆ドロップします。</p>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="flex gap-4 items-start">
+                <div class="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-sm font-bold text-brand-400 shrink-0">2</div>
+                <div>
+                    <h4 class="font-bold text-white mb-1">初回の起動方法（セキュリティ警告の回避）</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-2">本アプリは自己署名アプリのため、通常通りダブルクリックすると警告が表示されます。回避して起動するには：</p>
+                    <p class="text-slate-400 text-sm leading-relaxed">アプリケーションフォルダ内の <code>Fuwari-Secure.app</code> を<strong>右クリック</strong>（または <code>Control</code> キーを押しながらクリック）し、メニューから <strong>「開く」</strong> を選択します。確認ダイアログが表示されたら、再度 <strong>「開く」</strong> をクリックします。この操作は初回起動時のみ必要です。</p>
+                </div>
+            </div>
+
+            <!-- Troubleshooting Box -->
+            <div class="mt-10 p-6 rounded-2xl bg-red-500/5 border border-red-500/15">
+                <h4 class="font-display font-bold text-red-400 flex items-center gap-2 mb-3">
+                    <i data-lucide="alert-triangle" class="w-5 h-5"></i> トラブルシューティング：「壊れているため開けません」と表示される場合
+                </h4>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    ダウンロードしたアプリを起動しようとした際、macOSが *"「Fuwari-Secure」は破損しているため開けません。ゴミ箱に入れる必要があります。"* という警告を表示することがあります。これは、インターネットからダウンロードされた未署名アプリに対するmacOSの標準的なセキュリティ制限（隔離機能）によるもので、<strong>アプリは実際には破損していません。</strong>
+                </p>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                    この問題は、以下の手順で「ターミナル」から隔離フラグを解除することで、簡単に解決できます。
+                </p>
+                
+                <!-- Terminal Block -->
+                <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 relative group">
+                    <div class="flex justify-between items-center mb-2 text-slate-500 text-[10px] uppercase tracking-wider">
+                        <span>ターミナルに貼り付けるコマンド</span>
+                        <span class="text-slate-600">隔離属性の解除</span>
+                    </div>
+                    <div class="overflow-x-auto whitespace-nowrap py-1">
+                        <span class="text-brand-400">$</span> xattr -cr /Applications/Fuwari-Secure.app
+                    </div>
+                </div>
+                
+                <ol class="list-decimal list-inside text-slate-400 text-sm mt-4 space-y-1.5">
+                    <li>Macの「<strong>ターミナル</strong>」アプリを起動します（Spotlight検索 <code>Cmd + Space</code> で「ターミナル」または「Terminal」と入力して起動できます）。</li>
+                    <li>上記のコマンド（<code>xattr...</code>）をコピーしてターミナルに貼り付け、<code>Enter</code> キーを押します。</li>
+                    <li>ターミナルを閉じ、再度 <code>Fuwari-Secure.app</code> を起動します。警告が消え、正常に起動できるようになります！</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="relative z-10 border-t border-white/5 bg-slate-950/50 py-12 text-center text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <i data-lucide="layers" class="w-4 h-4 text-brand-500"></i>
+                <span class="font-display font-semibold text-slate-400">Fuwari-Secure</span>
+            </div>
+            <p>
+                Based on <a href="https://github.com/kentya6/Fuwari" target="_blank" class="text-slate-400 hover:text-white transition-colors">kentya6/Fuwari</a>. 
+                Maintained by <a href="https://github.com/tnaoyak" target="_blank" class="text-slate-400 hover:text-white transition-colors">tnaoyak</a>.
+            </p>
+            <p>© 2026 Fuwari-Secure. Released under the MIT License.</p>
+        </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
