@@ -157,9 +157,51 @@
             <span class="bg-gradient-to-r from-brand-400 via-brand-300 to-slate-200 bg-clip-text text-transparent">like a sticky note.</span>
         </h1>
         
-        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-light leading-relaxed animate-fade-in-up delay-200">
-            Fuwari-Secure is a privacy-first, secure fork of Fuwari designed for strict enterprise security environments. All external upload features are completely removed. No data ever leaves your Mac.
+        <p class="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-fade-in-up delay-200">
+            Fuwari-Secure is a macOS utility that pins screenshots to the top of your screen, letting you reference them easily while you work.
         </p>
+
+        <!-- 3-column Feature Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left mb-12 animate-fade-in-up delay-200">
+            <!-- Feature 1 -->
+            <div class="glass-card rounded-xl p-5 border-white/5">
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
+                        <i data-lucide="pin" class="w-4 h-4 text-brand-400"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Pin to Top</h4>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Keep captured images always on top. Perfect for referencing data, specs, or designs while writing code or documents.
+                </p>
+            </div>
+
+            <!-- Feature 2 -->
+            <div class="glass-card rounded-xl p-5 border-white/5">
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
+                        <i data-lucide="sliders" class="w-4 h-4 text-brand-400"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Flexible Controls</h4>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Freely resize and reposition your pinned images. Scroll your mouse wheel over them to adjust transparency instantly.
+                </p>
+            </div>
+
+            <!-- Feature 3 -->
+            <div class="glass-card rounded-xl p-5 border-white/5">
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
+                        <i data-lucide="copy" class="w-4 h-4 text-brand-400"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">Copy & Save</h4>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    Easily copy pinned screenshots to your clipboard to paste into chats, or save them locally to your Mac with a single click.
+                </p>
+            </div>
+        </div>
 
         <!-- CTA Cards Grid -->
         <div class="grid md:grid-cols-5 gap-6 max-w-3xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
@@ -184,19 +226,22 @@
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
                         <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-white mb-2">100% Local & Secure</h3>
+                    <h3 class="font-display font-bold text-xl text-white mb-2">A Safer Fork of "Fuwari"</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        Retains all the intuitive features of the original Fuwari, but completely strips out external upload capabilities to meet strict corporate security standards.
+                    </p>
                     <ul class="space-y-3 text-slate-400 text-sm">
                         <li class="flex items-start gap-2.5">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>No Gyazo upload</span>
+                            <span><strong>100% Offline Operation</strong> (No external network requests)</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>No OAuth integrations</span>
+                            <span><strong>No Gyazo Uploads</strong> (Prevents accidental cloud data leaks)</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>No external network requests</span>
+                            <span><strong>No Accounts or OAuth</strong> (No login required)</span>
                         </li>
                     </ul>
                 </div>

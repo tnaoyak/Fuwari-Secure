@@ -157,9 +157,51 @@
             <span class="bg-gradient-to-r from-brand-400 via-brand-300 to-slate-200 bg-clip-text text-transparent">付箋のように画面に浮かせる。</span>
         </h1>
         
-        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-12 font-light leading-relaxed animate-fade-in-up delay-200">
-            Fuwari-Secureは、厳格な企業セキュリティポリシーに対応した、プライバシー最優先のFuwariフォーク版です。外部へのアップロード機能を完全に排除し、一切のデータをMacの外に送信しません。
+        <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 font-light leading-relaxed animate-fade-in-up delay-200">
+            Fuwari-Secureは、撮影したスクリーンショットを画面の最前面にピン留めし、資料作成や開発時の参考として自由に配置できるMac用アプリです。
         </p>
+
+        <!-- 3つの主要機能グリッド -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-left mb-12 animate-fade-in-up delay-200">
+            <!-- 機能 1 -->
+            <div class="glass-card rounded-xl p-5 border-white/5">
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
+                        <i data-lucide="pin" class="w-4 h-4 text-brand-400"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">最前面にピン留め</h4>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    撮影した画像を常に最前面に表示。ブラウザやエディタを切り替えても隠れず、資料を見ながらの作業に最適です。
+                </p>
+            </div>
+
+            <!-- 機能 2 -->
+            <div class="glass-card rounded-xl p-5 border-white/5">
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
+                        <i data-lucide="sliders" class="w-4 h-4 text-brand-400"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">自由なコントロール</h4>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    ドラッグでのサイズ・位置変更はもちろん、マウスホイールを回すだけで不透明度を直感的に調整できます。
+                </p>
+            </div>
+
+            <!-- 機能 3 -->
+            <div class="glass-card rounded-xl p-5 border-white/5">
+                <div class="flex items-center gap-2.5 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-brand-500/10 border border-brand-500/20 flex items-center justify-center">
+                        <i data-lucide="copy" class="w-4 h-4 text-brand-400"></i>
+                    </div>
+                    <h4 class="font-bold text-white text-sm">コピー＆ローカル保存</h4>
+                </div>
+                <p class="text-slate-400 text-xs leading-relaxed">
+                    浮かべた画像は、ワンクリックでクリップボードにコピーしてチャットに貼り付けたり、ローカルに保存したりできます。
+                </p>
+            </div>
+        </div>
 
         <!-- CTA Cards Grid -->
         <div class="grid md:grid-cols-5 gap-6 max-w-3xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
@@ -184,19 +226,22 @@
                     <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
                         <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-white mb-2">100% ローカル＆安全</h3>
+                    <h3 class="font-display font-bold text-xl text-white mb-2">「Fuwari」をより安全に</h3>
+                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                        オリジナルの便利さはそのままに、企業利用でのセキュリティ懸念となる外部送信機能を完全に排除したセキュアフォーク版です。
+                    </p>
                     <ul class="space-y-3 text-slate-400 text-sm">
                         <li class="flex items-start gap-2.5">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>Gyazoへの送信機能を削除</span>
+                            <span><strong>完全オフライン動作</strong>（一切の外部通信なし）</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>OAuth連携機能を削除</span>
+                            <span><strong>Gyazo送信機能の排除</strong>（クラウド流出防止）</span>
                         </li>
                         <li class="flex items-start gap-2.5">
                             <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span>一切の外部通信を行いません</span>
+                            <span><strong>OAuth連携・アカウント不要</strong></span>
                         </li>
                     </ul>
                 </div>
