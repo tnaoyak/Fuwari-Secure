@@ -36,7 +36,6 @@
 		BEF57FF21DFD5CB6006595B6 /* PreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF41DFD5CB6006595B6 /* PreferencesWindowController.xib */; };
 		BEF57FF71DFD5CD1006595B6 /* GeneralPreferenceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF57FF91DFD5CD1006595B6 /* GeneralPreferenceViewController.xib */; };
 		CA72BCDB25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */; };
-		CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,7 +87,6 @@
 		BEF57FFA1DFD5CD3006595B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/GeneralPreferenceViewController.xib; sourceTree = "<group>"; };
 		BEF580081DFD9786006595B6 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		CA72BCDA25FB6F3F0041CB0D /* GeneralPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferenceViewController.swift; sourceTree = "<group>"; };
-		CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GyazoManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,7 +140,6 @@
 				BEAFC2D220E8FC2E00F12911 /* ScreenshotManager.swift */,
 				BE5BE7A31E065D7800820201 /* HotKeyManager.swift */,
 				BE9777F71E100D1F00E5934F /* MenuManager.swift */,
-				CA72BCEF25FCA22C0041CB0D /* GyazoManager.swift */,
 				BE6D5E741E12CF5E005492B2 /* AboutWindowController.swift */,
 				BE6D5E751E12CF5E005492B2 /* AboutWindowController.xib */,
 				BEF580021DFD9464006595B6 /* Preferences */,
@@ -322,7 +319,6 @@
 				BEC844F91DED859300A4A57A /* ViewController.swift in Sources */,
 				BE85482420FB5C640035BC60 /* FloatView.swift in Sources */,
 				BE6D5E761E12CF5E005492B2 /* AboutWindowController.swift in Sources */,
-				CA72BCF025FCA22C0041CB0D /* GyazoManager.swift in Sources */,
 				BE103A372845E59E005CA1A0 /* SpaceMode.swift in Sources */,
 				BE5BE7A41E065D7800820201 /* HotKeyManager.swift in Sources */,
 				BE5896A11DFCED26007CE7AC /* LocalizedString.swift in Sources */,
@@ -510,7 +506,6 @@
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
@@ -540,7 +535,6 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = Fuwari/Info.plist;
