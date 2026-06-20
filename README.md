@@ -22,6 +22,16 @@ Fuwari-Secure is a secure fork of Fuwari, designed for strict enterprise securit
 <img src="https://fuwari-app.com/images/fuwari_demo_1.0.0.gif" width="720px" />
 </p>
 
+## 💾 Installation & Usage
+
+Since Fuwari-Secure is distributed outside the Mac App Store as a secure standalone app, please follow these simple steps to install and open it:
+
+1. **Download**: Go to the [Releases](https://github.com/tnaoyak/Fuwari-Secure/releases) page and download the latest `Fuwari-Secure.dmg` file.
+2. **Install**: Double-click the downloaded `.dmg` file and drag `Fuwari-Secure.app` into your **Applications** folder.
+3. **Open (Gatekeeper Bypass)**:
+   * Because the app is self-signed, double-clicking it normally will show a security warning: *"Fuwari-Secure cannot be opened because the developer cannot be verified."*
+   * **To bypass this**: Right-click (or hold the `Control` key and click) `Fuwari-Secure.app` in your Applications folder, select **Open** from the menu, and then click **Open** again in the confirmation dialog. This is only required for the first launch.
+
 ## ✅ Feature
 
 * [x] **Keep a screenshot on your screen**
