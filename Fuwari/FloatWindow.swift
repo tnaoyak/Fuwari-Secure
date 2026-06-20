@@ -133,8 +133,6 @@ class FloatWindow: NSWindow {
         menu?.addItem(NSMenuItem.separator())
         menu?.addItem(NSMenuItem(title: LocalizedString.Save.value, action: #selector(saveImage), keyEquivalent: "s"))
         menu?.addItem(NSMenuItem.separator())
-        menu?.addItem(NSMenuItem(title: LocalizedString.Upload.value, action: #selector(uploadImage), keyEquivalent: ""))
-        menu?.addItem(NSMenuItem.separator())
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomReset.value, action: #selector(resetWindowScale), keyEquivalent: "r"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ResetWindow.value, action: #selector(resetWindow), keyEquivalent: "0"))
         menu?.addItem(NSMenuItem(title: LocalizedString.ZoomIn.value, action: #selector(zoomInWindow), keyEquivalent: "+"))
@@ -290,17 +288,6 @@ class FloatWindow: NSWindow {
                 NSPasteboard.general.clearContents()
                 NSPasteboard.general.writeObjects([nsImage])
                 self.showPopUp(text: "Copy")
-            }
-        }
-    }
-    
-    @objc private func uploadImage() {
-        DispatchQueue.main.asyncAfter(deadline: .now()) {
-            if let image = self.contentView?.layer?.contents {
-                let cgImage = image as! CGImage
-                let size = CGSize(width: cgImage.width, height: cgImage.height)
-                let nsImage = NSImage(cgImage: cgImage, size: size)
-                GyazoManager.shared.uploadImage(image: nsImage)
             }
         }
     }

@@ -1,26 +1,20 @@
 <div align="center">
   <img src="https://user-images.githubusercontent.com/16918590/111069765-ee119500-8511-11eb-83c2-a45bf2aa40da.png" width="196px" />
-  <h1>Fuwari</h1>
+  <h1>Fuwari-Secure</h1>
 </div>
 
 <div align="center">
-<a href="https://github.com/kentya6/Fuwari/releases/latest"><img src="https://img.shields.io/github/release/kentya6/Fuwari.svg" alt="Release version"></a>
-<a href="https://github.com/kentya6/Fuwari/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
+<a href="https://github.com/tnaoyak/Fuwari-Secure/releases/latest"><img src="https://img.shields.io/github/release/tnaoyak/Fuwari-Secure.svg" alt="Release version"></a>
+<a href="https://github.com/tnaoyak/Fuwari-Secure/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
 </div>
 
 <br>
 
 <div align="center">
-  <a href="https://apps.apple.com/app/fuwari/id1187652334">
-    <img src="https://fuwari-app.com/images/download_on_the_appstore.svg"/>
-  </a>
+  <strong>Floating screenshot like a sticky (Secure Edition).</strong>
 </div>
 
-<br>
-
-<div align="center">
-  <strong>Floating screenshot like a sticky.</strong>
-</div>
+Fuwari-Secure is a secure fork of Fuwari, designed for strict enterprise security environments. All external upload features (including Gyazo upload and OAuth integration) have been completely removed to ensure no data leaves your local machine.
 
 ## 🖥 Demo
 
@@ -36,17 +30,16 @@
   * [x] Change the display range in the space.
   * [x] Can be copied to clipboard.
   * [x] Of course, can be save.
-* [x] **Send a screenshot to Gyazo**
 
 ## 📦 Requirement
 
 * Swift 5+
 * Xcode 13.4+
-* Carthage 0.38.0+
+* macOS 11.0+
 
 ## 🤝 Contributing
 
-1. Fork it ( <https://github.com/kentya6/Fuwari/fork> )
+1. Fork it ( <https://github.com/tnaoyak/Fuwari-Secure/fork> )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -60,4 +53,5 @@ The MIT License (MIT)
 
 ## 🖋 Author
 
-* [kentya6](https://github.com/kentya6)
+* [kentya6](https://github.com/kentya6) (Original Author)
+* [tnaoyak](https://github.com/tnaoyak) (Secure Fork Maintainer)

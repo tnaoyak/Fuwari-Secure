@@ -16,7 +16,6 @@ struct Constants {
     
     struct UserDefaults {
         static let suppressAlertForLoginItem = "suppressAlertForLoginItem"
-        static let uploadConfirmationItem    = "uploadConfirmationItem"
         static let captureKeyCombo           = "captureKeyCombo"
         static let movingOpacity             = "movingOpacity"
         static let singleTapCaptureMode      = "singleTapCaptureMode"
