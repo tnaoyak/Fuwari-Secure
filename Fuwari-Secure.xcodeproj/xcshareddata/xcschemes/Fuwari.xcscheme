@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "BEC844F21DED859300A4A57A"
-               BuildableName = "Fuwari.app"
-               BlueprintName = "Fuwari"
-               ReferencedContainer = "container:Fuwari.xcodeproj">
+               BuildableName = "Fuwari-Secure.app"
+               BlueprintName = "Fuwari-Secure"
+               ReferencedContainer = "container:Fuwari-Secure.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -54,9 +54,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BEC844F21DED859300A4A57A"
-            BuildableName = "Fuwari.app"
-            BlueprintName = "Fuwari"
-            ReferencedContainer = "container:Fuwari.xcodeproj">
+            BuildableName = "Fuwari-Secure.app"
+            BlueprintName = "Fuwari-Secure"
+            ReferencedContainer = "container:Fuwari-Secure.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -71,9 +71,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "BEC844F21DED859300A4A57A"
-            BuildableName = "Fuwari.app"
-            BlueprintName = "Fuwari"
-            ReferencedContainer = "container:Fuwari.xcodeproj">
+            BuildableName = "Fuwari-Secure.app"
+            BlueprintName = "Fuwari-Secure"
+            ReferencedContainer = "container:Fuwari-Secure.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
