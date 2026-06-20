@@ -32,6 +32,19 @@ Since Fuwari-Secure is distributed outside the Mac App Store as a secure standal
    * Because the app is self-signed, double-clicking it normally will show a security warning: *"Fuwari-Secure cannot be opened because the developer cannot be verified."*
    * **To bypass this**: Right-click (or hold the `Control` key and click) `Fuwari-Secure.app` in your Applications folder, select **Open** from the menu, and then click **Open** again in the confirmation dialog. This is only required for the first launch.
 
+### ⚠️ Troubleshooting: "Fuwari-Secure is damaged and cannot be opened"
+
+If you see a dialog saying *"Fuwari-Secure is damaged and cannot be opened. You should move it to the Trash."*, this is a known macOS security behavior for downloaded self-signed apps. The app is **not** damaged. 
+
+To fix this, you will need to remove the macOS quarantine attribute using the Terminal:
+
+1. Open the **Terminal** app on your Mac (you can find it via Spotlight search by pressing `Cmd + Space` and typing "Terminal").
+2. Copy and paste the following command, then press `Enter`:
+   ```bash
+   xattr -cr /Applications/Fuwari-Secure.app
+   ```
+3. Close the Terminal and open `Fuwari-Secure.app` again. It will now launch perfectly!
+
 ## ✅ Feature
 
 * [x] **Keep a screenshot on your screen**
