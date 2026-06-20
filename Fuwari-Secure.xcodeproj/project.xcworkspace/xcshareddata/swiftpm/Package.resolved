@@ -1,0 +1,42 @@
+{
+  "originHash" : "a0dadbbab0f2da381f89c8861c288fdadc820973de3edb57dabdf32c163a92da",
+  "pins" : [
+    {
+      "identity" : "keyholder",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Clipy/KeyHolder.git",
+      "state" : {
+        "revision" : "69cfeabc06965bf98d6aa75c5a06c430795e01e4",
+        "version" : "4.3.0"
+      }
+    },
+    {
+      "identity" : "launchatlogin",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/sindresorhus/LaunchAtLogin",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e8171b3e38a2816f579f58f3dac1522aa39efe41"
+      }
+    },
+    {
+      "identity" : "magnet",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Clipy/Magnet.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "e19a08aafc7081b5c2ac4efed074605c260102ae"
+      }
+    },
+    {
+      "identity" : "sauce",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Clipy/Sauce.git",
+      "state" : {
+        "revision" : "c9ebdcfddb4b94da5b9a6ebd113ab385edda88c1",
+        "version" : "2.5.0"
+      }
+    }
+  ],
+  "version" : 3
+}
