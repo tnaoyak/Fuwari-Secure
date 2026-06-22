@@ -5,7 +5,7 @@
 
 <div align="center">
 <a href="https://github.com/tnaoyak/Fuwari-Secure/releases/latest"><img src="https://img.shields.io/github/release/tnaoyak/Fuwari-Secure.svg" alt="Release version"></a>
-<a href="https://github.com/tnaoyak/Fuwari-Secure/blob/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
+<a href="https://github.com/tnaoyak/Fuwari-Secure/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License: MIT"></a>
 </div>
 
 <br>
