@@ -25,7 +25,8 @@ class ScreenshotManager: NSObject {
     func startCapture(spaceMode: SpaceMode) {
         tapCount += 1
 
-        let fileUrl = FileManager.default.temporaryDirectory.appendingPathComponent("fuwari-temporary-screenshot.png")
+        let filename = "fuwari-\(UUID().uuidString).png"
+        let fileUrl = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
         let captureProcess = Process()
         let pipe = Pipe()
         captureProcess.launchPath = "/usr/sbin/screencapture"
@@ -33,7 +34,10 @@ class ScreenshotManager: NSObject {
         captureProcess.environment = ["OS_ACTIVITY_DT_MODE": "YES"]
         captureProcess.standardError = pipe
         captureProcess.terminationHandler = { task in
-            guard task.terminationStatus == 0 else { return }
+            if task.terminationStatus != 0 {
+                try? FileManager.default.removeItem(at: fileUrl)
+                return
+            }
             let output = pipe.fileHandleForReading.availableData
             let str = String(decoding: output, as: UTF8.self)
             let rect = self.extractCoordinates(str: str)
