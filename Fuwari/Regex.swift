@@ -12,17 +12,21 @@ struct Regex {
     static func match(str: String, regexPattern: String) -> NSTextCheckingResult? {
         let strRange = NSRange(str.startIndex..<str.endIndex, in: str)
 
-        let regex = try! NSRegularExpression(
-            pattern: regexPattern,
-            options: []
-        )
-        let matches = regex.matches(
-            in: str,
-            options: [],
-            range: strRange
-        )
-
-        return matches.first
+        do {
+            let regex = try NSRegularExpression(
+                pattern: regexPattern,
+                options: []
+            )
+            let matches = regex.matches(
+                in: str,
+                options: [],
+                range: strRange
+            )
+            return matches.first
+        } catch {
+            print("Failed to initialize regular expression with pattern \(regexPattern): \(error)")
+            return nil
+        }
     }
 
     static func getGroup(match: NSTextCheckingResult, name: String, str: String) throws -> String {

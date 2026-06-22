@@ -24,7 +24,8 @@ class ViewController: NSViewController, NSWindowDelegate {
         oldApp = NSWorkspace.shared.frontmostApplication
         oldApp?.activate(options: .activateIgnoringOtherApps)
         
-        ScreenshotManager.shared.eventHandler { imageUrl, rectMaybeConst, spaceMode in
+        ScreenshotManager.shared.eventHandler { [weak self] imageUrl, rectMaybeConst, spaceMode in
+            guard let self = self else { return }
             let mainScreen = NSScreen.screens.first
             let currentScreen = NSScreen.screens.first { $0.frame.contains(NSEvent.mouseLocation) }
             guard let currentScaleFactor = currentScreen?.backingScaleFactor else { return }

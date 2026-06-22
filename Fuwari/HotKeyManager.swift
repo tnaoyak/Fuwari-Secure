@@ -16,11 +16,11 @@ final class HotKeyManager: NSObject {
     private let defaults = UserDefaults.standard
     
     private(set) lazy var captureKeyCombo: KeyCombo = {
-        if let keyCombo = self.defaults.archiveDataForKey(KeyCombo.self, key: Constants.UserDefaults.captureKeyCombo) {
+        if let keyCombo = self.defaults.codableDataForKey(KeyCombo.self, key: Constants.UserDefaults.captureKeyCombo) {
             return keyCombo
         } else {
             let defaultKeyCombo = KeyCombo(key: .seven, cocoaModifiers: [.command, .shift])
-            self.defaults.setArchiveData(defaultKeyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
+            self.defaults.setCodableData(defaultKeyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
             return defaultKeyCombo
         }
     }()
@@ -48,7 +48,7 @@ extension HotKeyManager {
     
     private func saveKeyCombo(keyCombo: KeyCombo?) {
         if let keyCombo = keyCombo {
-            defaults.setArchiveData(keyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
+            defaults.setCodableData(keyCombo, forKey: Constants.UserDefaults.captureKeyCombo)
         } else {
             defaults.removeObject(forKey: Constants.UserDefaults.captureKeyCombo)
         }
