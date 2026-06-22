@@ -29,7 +29,7 @@ class ScreenshotManager: NSObject {
         let fileUrl = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
         let captureProcess = Process()
         let pipe = Pipe()
-        captureProcess.launchPath = "/usr/sbin/screencapture"
+        captureProcess.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
         captureProcess.arguments = ["-x", "-i", "-o"] + [fileUrl.path]
         captureProcess.environment = ["OS_ACTIVITY_DT_MODE": "YES"]
         captureProcess.standardError = pipe
@@ -53,7 +53,13 @@ class ScreenshotManager: NSObject {
                 self?.tapCount = 0
             }
         }
-        captureProcess.launch()
+        do {
+            try captureProcess.run()
+        } catch {
+            print("Failed to run screencapture process: \(error)")
+            try? FileManager.default.removeItem(at: fileUrl)
+            tapCount = 0
+        }
     }
 
     func extractCoordinates(str: String) -> NSRect? {
