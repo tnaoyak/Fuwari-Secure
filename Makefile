@@ -3,7 +3,7 @@ RealAppName := Fuwari-Secure
 
 # Default - top level rule is what gets ran when you run just `make`
 build:
-	xcodebuild -scheme $(AppName) -configuration Debug
+	xcodebuild -scheme $(AppName) -configuration Debug CODE_SIGN_IDENTITY="-" EXPANDED_CODE_SIGN_IDENTITY_NAME="-" EXPANDED_CODE_SIGN_IDENTITY="-"
 .PHONY: build
 
 release: dist/$(RealAppName).app
@@ -26,7 +26,7 @@ artifacts:
 	mkdir -p artifacts
 
 artifacts/$(AppName).xcarchive: artifacts
-	xcodebuild archive -archivePath $@ -scheme $(AppName) -configuration Release
+	xcodebuild archive -archivePath $@ -scheme $(AppName) -configuration Release CODE_SIGN_IDENTITY="-" EXPANDED_CODE_SIGN_IDENTITY_NAME="-" EXPANDED_CODE_SIGN_IDENTITY="-"
 
 dist/$(RealAppName).app: dist artifacts/$(AppName).xcarchive
 	cp -R artifacts/$(AppName).xcarchive/Products/Applications/$(RealAppName).app dist/$(RealAppName).app
