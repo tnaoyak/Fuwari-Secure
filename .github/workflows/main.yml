@@ -107,3 +107,51 @@ jobs:
         prerelease: false
         files: |
           dist/Fuwari.dmg
+
+    - name: Update Homebrew Cask
+      env:
+        TAP_TOKEN: ${{ secrets.HOMEBREW_TAP_TOKEN }}
+      if: env.TAP_TOKEN != ''
+      run: |
+        VERSION=${GITHUB_REF#refs/tags/v}
+        SHA256=$(shasum -a 256 dist/Fuwari.dmg | awk '{print $1}')
+        
+        git clone https://x-access-token:${{ secrets.HOMEBREW_TAP_TOKEN }}@github.com/tnaoyak/homebrew-tap.git homebrew-tap
+        cd homebrew-tap
+        
+        mkdir -p Casks
+        cat <<'EOF' | sed 's/^        //' > Casks/fuwari-secure.rb
+        cask "fuwari-secure" do
+          version "VERSION_PLACEHOLDER"
+          sha256 "SHA256_PLACEHOLDER"
+
+          url "https://github.com/tnaoyak/Fuwari-Secure/releases/download/v#{version}/Fuwari.dmg"
+          name "Fuwari-Secure"
+          desc "Floating screenshot like a sticky (Secure Edition)"
+          homepage "https://github.com/tnaoyak/Fuwari-Secure"
+
+          app "Fuwari-Secure.app"
+
+          uninstall quit: "com.tnaoyak.Fuwari-Secure"
+
+          zap trash: [
+            "~/Library/Preferences/com.tnaoyak.Fuwari-Secure.plist",
+            "~/Library/Caches/com.tnaoyak.Fuwari-Secure",
+            "~/Library/Saved Application State/com.tnaoyak.Fuwari-Secure.savedState",
+          ]
+
+          caveats <<~EOS
+            Fuwari-Secure is self-signed. If you see a message saying "Fuwari-Secure is damaged and cannot be opened", please run:
+              xattr -cr /Applications/Fuwari-Secure.app
+          EOS
+        end
+        EOF
+        
+        perl -pi -e "s/VERSION_PLACEHOLDER/${VERSION}/g" Casks/fuwari-secure.rb
+        perl -pi -e "s/SHA256_PLACEHOLDER/${SHA256}/g" Casks/fuwari-secure.rb
+        
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add Casks/fuwari-secure.rb
+        git commit -m "Update fuwari-secure to ${VERSION}"
+        git push origin HEAD
