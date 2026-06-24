@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="BiWHgW2kWOS2ydGD-zu6Zi-Upq6TugWBWKeNf9sAWPs" />
     <meta name="description" content="Fuwari-Secureは、撮影したスクリーンショットを付箋のように画面上に浮かせておけるMac用アプリです。外部へのアップロード機能を完全に排除した完全ローカル動作のセキュア版で、企業の厳しいセキュリティ基準に適合します。" />
-    <link rel="canonical" href="https://tnaoyak.github.io/Fuwari-Secure/ja/" />
+    <link class="canonical" href="https://tnaoyak.github.io/Fuwari-Secure/ja/" />
     <link rel="alternate" hreflang="en" href="https://tnaoyak.github.io/Fuwari-Secure/" />
     <link rel="alternate" hreflang="ja" href="https://tnaoyak.github.io/Fuwari-Secure/ja/" />
     <link rel="alternate" hreflang="x-default" href="https://tnaoyak.github.io/Fuwari-Secure/" />
@@ -204,49 +204,67 @@
         </div>
 
         <!-- CTA Cards Grid -->
-        <div class="grid md:grid-cols-5 gap-6 max-w-3xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
-            <!-- Main Download CTA -->
-            <div class="md:col-span-3 glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
+            <!-- DMG Download CTA -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6">
-                        <i data-lucide="download" class="w-6 h-6 text-brand-400"></i>
+                    <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-4">
+                        <i data-lucide="download" class="w-5 h-5 text-brand-400"></i>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-white mb-2">Fuwari-Secure をダウンロード</h3>
-                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">macOS用の完全オフライン・スタンドアロン版。無料でオープンソースとして公開されています。</p>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">手動インストール</h3>
+                    <p class="text-slate-400 text-xs mb-6 leading-relaxed">スタンドアロンの DMG ファイルをダウンロードします。アプリケーションフォルダにドラッグして、初回起動時にGatekeeperをバイパスします。</p>
                 </div>
-                <a href="https://github.com/tnaoyak/Fuwari-Secure/releases/download/v1.0.0/Fuwari-Secure.dmg" class="w-full py-3.5 px-6 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-medium text-center shadow-lg shadow-brand-500/20 border border-brand-400/20 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]">
-                    Download .dmg <span class="text-white/60 text-xs font-normal">(v1.0.0)</span>
+                <a href="https://github.com/tnaoyak/Fuwari-Secure/releases/latest/download/Fuwari.dmg" class="w-full py-2.5 px-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-medium text-sm text-center shadow-lg shadow-brand-500/20 border border-brand-400/20 transition-all duration-300 flex items-center justify-center gap-1.5 group-hover:scale-[1.02]">
+                    Download .dmg <span class="text-white/60 text-[10px] font-normal">(最新版)</span>
                 </a>
             </div>
 
-            <!-- Security Assurance Card -->
-            <div class="md:col-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between border-white/5">
+            <!-- Homebrew CTA -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
-                        <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
+                    <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-4">
+                        <i data-lucide="terminal" class="w-5 h-5 text-brand-400"></i>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-white mb-2">「Fuwari」をより安全に</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
-                        オリジナルの便利さはそのままに、企業利用でのセキュリティ懸念となる外部送信機能を完全に排除したセキュアフォーク版です。
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Homebrew で導入</h3>
+                    <p class="text-slate-400 text-xs mb-4 leading-relaxed">Homebrew経由で簡単にインストールとアップデートが行えます。開発者やコマンドラインユーザーに最適です。</p>
+                    <!-- Terminal Block -->
+                    <div class="rounded-lg bg-slate-950/80 border border-white/5 p-3 font-mono text-[10px] text-slate-300 mb-6">
+                        <div class="overflow-x-auto whitespace-nowrap">
+                            <span class="text-brand-400">$</span> brew install tnaoyak/tap/fuwari-secure
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-slate-500 text-[11px] py-2.5">
+                    簡単なアップデートでおすすめ
+                </div>
+            </div>
+
+            <!-- Security Assurance Card -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-white/5">
+                <div>
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                        <i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">完全オフライン版</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed mb-4">
+                        企業の厳格なセキュリティ基準に適合するため、外部へのアップロード機能を完全に排除しています。
                     </p>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong>完全オフライン動作</strong>（一切の外部通信なし）</span>
+                    <ul class="space-y-2 text-slate-400 text-xs">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>完全オフライン動作（外部通信なし）</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong>Gyazo送信機能の排除</strong>（クラウド流出防止）</span>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>Gyazo等のクラウド送信機能なし</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong>OAuth連携・アカウント不要</strong></span>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>アカウント作成やOAuth連携不要</span>
                         </li>
                     </ul>
-                </div>
-                <div class="pt-6 border-t border-white/5 text-xs text-slate-500">
-                    厳格な企業のデータ保護ポリシーに完全に適合します。
                 </div>
             </div>
         </div>
@@ -281,55 +299,61 @@
             <i data-lucide="terminal" class="w-7 h-7 text-brand-400"></i> インストールと起動手順
         </h2>
 
-        <div class="space-y-6">
-            <!-- Step 1 -->
-            <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-sm font-bold text-brand-400 shrink-0">1</div>
-                <div>
-                    <h4 class="font-bold text-white mb-1">アプリケーションフォルダへ移動</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed">ダウンロードした <code>Fuwari-Secure.dmg</code> ファイルをダブルクリックして開き、アプリのアイコンを <strong>アプリケーション（Applications）</strong> フォルダにドラッグ＆ドロップします。</p>
+        <!-- Method Selection Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <!-- Homebrew Method -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                <h3 class="font-display font-bold text-white text-lg mb-4 flex items-center gap-2">
+                    <i data-lucide="terminal" class="w-5 h-5 text-brand-400"></i> 方法 A: Homebrew (推奨)
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">最も簡単にインストールとアップデート管理が行えます。ターミナルで以下のコマンドを実行してください：</p>
+                <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 mb-4">
+                    <span class="text-brand-400">$</span> brew install tnaoyak/tap/fuwari-secure
                 </div>
+                <p class="text-slate-400 text-xs leading-relaxed">※ 初回起動時にセキュリティ警告が表示される場合は、下部のトラブルシューティングに記載されている隔離属性解除コマンドを実行してください。</p>
             </div>
 
-            <!-- Step 2 -->
-            <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-sm font-bold text-brand-400 shrink-0">2</div>
-                <div>
-                    <h4 class="font-bold text-white mb-1">初回の起動方法（セキュリティ警告の回避）</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-2">本アプリは自己署名アプリのため、通常通りダブルクリックすると警告が表示されます。回避して起動するには：</p>
-                    <p class="text-slate-400 text-sm leading-relaxed">アプリケーションフォルダ内の <code>Fuwari-Secure.app</code> を<strong>右クリック</strong>（または <code>Control</code> キーを押しながらクリック）し、メニューから <strong>「開く」</strong> を選択します。確認ダイアログが表示されたら、再度 <strong>「開く」</strong> をクリックします。この操作は初回起動時のみ必要です。</p>
-                </div>
-            </div>
-
-            <!-- Troubleshooting Box -->
-            <div class="mt-10 p-6 rounded-2xl bg-red-500/5 border border-red-500/15">
-                <h4 class="font-display font-bold text-red-400 flex items-center gap-2 mb-3">
-                    <i data-lucide="alert-triangle" class="w-5 h-5"></i> トラブルシューティング：「壊れているため開けません」と表示される場合
-                </h4>
-                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                    ダウンロードしたアプリを起動しようとした際、macOSが「<strong>Fuwari-Secureは破損しているため開けません。ゴミ箱に入れる必要があります。</strong>」という警告を表示することがあります。これは、インターネットからダウンロードされた未署名アプリに対するmacOSの標準的なセキュリティ制限（隔離機能）によるもので、<strong>アプリは実際には破損していません。</strong>
-                </p>
-                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                    この問題は、以下の手順で「ターミナル」から隔離フラグを解除することで、簡単に解決できます。
-                </p>
-                
-                <!-- Terminal Block -->
-                <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 relative group">
-                    <div class="flex justify-between items-center mb-2 text-slate-500 text-[10px] uppercase tracking-wider">
-                        <span>ターミナルに貼り付けるコマンド</span>
-                        <span class="text-slate-600">隔離属性の解除</span>
-                    </div>
-                    <div class="overflow-x-auto whitespace-nowrap py-1">
-                        <span class="text-brand-400">$</span> xattr -cr /Applications/Fuwari-Secure.app
-                    </div>
-                </div>
-                
-                <ol class="list-decimal list-inside text-slate-400 text-sm mt-4 space-y-1.5">
-                    <li>Macの「<strong>ターミナル</strong>」アプリを起動します（Spotlight検索 <code>Cmd + Space</code> で「ターミナル」または「Terminal」と入力して起動できます）。</li>
-                    <li>上記のコマンド（<code>xattr...</code>）をコピーしてターミナルに貼り付け、<code>Enter</code> キーを押します。</li>
-                    <li>ターミナルを閉じ、再度 <code>Fuwari-Secure.app</code> を起動します。警告が消え、正常に起動できるようになります！</li>
+            <!-- Manual Method -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                <h3 class="font-display font-bold text-white text-lg mb-4 flex items-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5 text-brand-400"></i> 方法 B: 手動 (DMG)
+                </h3>
+                <ol class="space-y-3 text-slate-400 text-sm list-decimal list-inside">
+                    <li>上部のダウンロードエリアから最新の DMG ファイルをダウンロードします。</li>
+                    <li>DMG をダブルクリックして開き、<code>Fuwari-Secure.app</code> を <strong>アプリケーション（Applications）</strong> フォルダにドラッグします。</li>
+                    <li>アプリケーションフォルダ内のアプリを<strong>右クリック</strong>して「開く」を選択し、Gatekeeper警告をバイパスして起動します。</li>
                 </ol>
             </div>
+        </div>
+
+        <!-- Troubleshooting Box -->
+        <div class="mt-10 p-6 rounded-2xl bg-red-500/5 border border-red-500/15">
+            <h4 class="font-display font-bold text-red-400 flex items-center gap-2 mb-3">
+                <i data-lucide="alert-triangle" class="w-5 h-5"></i> トラブルシューティング：「壊れているため開けません」と表示される場合
+            </h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                ダウンロードしたアプリを起動しようとした際、macOSが「<strong>Fuwari-Secureは破損しているため開けません。ゴミ箱に入れる必要があります。</strong>」という警告を表示することがあります。これは、インターネットからダウンロードされた未署名アプリに対するmacOSの標準的なセキュリティ制限（隔離機能）によるもので、<strong>アプリは実際には破損していません。</strong>
+            </p>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                この問題は、以下の手順で「ターミナル」から隔離フラグを解除することで、簡単に解決できます。
+            </p>
+            
+            <!-- Terminal Block -->
+            <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 relative group">
+                <div class="flex justify-between items-center mb-2 text-slate-500 text-[10px] uppercase tracking-wider">
+                    <span>ターミナルに貼り付けるコマンド</span>
+                    <span class="text-slate-600">隔離属性の解除</span>
+                </div>
+                <div class="overflow-x-auto whitespace-nowrap py-1">
+                    <span class="text-brand-400">$</span> xattr -cr /Applications/Fuwari-Secure.app
+                </div>
+            </div>
+            
+            <ol class="list-decimal list-inside text-slate-400 text-sm mt-4 space-y-1.5">
+                <li>Macの「<strong>ターミナル</strong>」アプリを起動します（Spotlight検索 <code>Cmd + Space</code> で「ターミナル」または「Terminal」と入力して起動できます）。</li>
+                <li>上記のコマンド（<code>xattr...</code>）をコピーしてターミナルに貼り付け、<code>Enter</code> キーを押します。</li>
+                <li>ターミナルを閉じ、再度 <code>Fuwari-Secure.app</code> を起動します。警告が消え、正常に起動できるようになります！</li>
+            </ol>
         </div>
     </section>
 

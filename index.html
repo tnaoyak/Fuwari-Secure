@@ -204,49 +204,67 @@
         </div>
 
         <!-- CTA Cards Grid -->
-        <div class="grid md:grid-cols-5 gap-6 max-w-3xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
-            <!-- Main Download CTA -->
-            <div class="md:col-span-3 glass-card rounded-2xl p-8 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left animate-fade-in-up delay-300 mb-16">
+            <!-- DMG Download CTA -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-6">
-                        <i data-lucide="download" class="w-6 h-6 text-brand-400"></i>
+                    <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-4">
+                        <i data-lucide="download" class="w-5 h-5 text-brand-400"></i>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-white mb-2">Download Fuwari-Secure</h3>
-                    <p class="text-slate-400 text-sm mb-8 leading-relaxed">Get the standalone offline-only version for macOS. Completely free and open-source.</p>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Manual Installation</h3>
+                    <p class="text-slate-400 text-xs mb-6 leading-relaxed">Download the standalone DMG file. Drag to Applications folder and bypass Gatekeeper on first launch.</p>
                 </div>
-                <a href="https://github.com/tnaoyak/Fuwari-Secure/releases/download/v1.0.0/Fuwari-Secure.dmg" class="w-full py-3.5 px-6 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-medium text-center shadow-lg shadow-brand-500/20 border border-brand-400/20 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.02]">
-                    Download .dmg <span class="text-white/60 text-xs font-normal">(v1.0.0)</span>
+                <a href="https://github.com/tnaoyak/Fuwari-Secure/releases/latest/download/Fuwari.dmg" class="w-full py-2.5 px-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-medium text-sm text-center shadow-lg shadow-brand-500/20 border border-brand-400/20 transition-all duration-300 flex items-center justify-center gap-1.5 group-hover:scale-[1.02]">
+                    Download .dmg <span class="text-white/60 text-[10px] font-normal">(Latest)</span>
                 </a>
             </div>
 
-            <!-- Security Assurance Card -->
-            <div class="md:col-span-2 glass-card rounded-2xl p-8 flex flex-col justify-between border-white/5">
+            <!-- Homebrew CTA -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-brand-500/30 transition-all duration-500">
+                <div class="absolute top-0 right-0 w-24 h-24 bg-brand-500/5 rounded-full filter blur-xl group-hover:bg-brand-500/10 transition-all duration-500"></div>
                 <div>
-                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-6">
-                        <i data-lucide="lock" class="w-6 h-6 text-emerald-400"></i>
+                    <div class="w-10 h-10 rounded-xl bg-brand-500/10 border border-brand-500/20 flex items-center justify-center mb-4">
+                        <i data-lucide="terminal" class="w-5 h-5 text-brand-400"></i>
                     </div>
-                    <h3 class="font-display font-bold text-xl text-white mb-2">A Safer Fork of "Fuwari"</h3>
-                    <p class="text-slate-400 text-xs leading-relaxed mb-4">
-                        Retains all the intuitive features of the original Fuwari, but completely strips out external upload capabilities to meet strict corporate security standards.
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Homebrew Tap</h3>
+                    <p class="text-slate-400 text-xs mb-4 leading-relaxed">Install and update easily via Homebrew. Ideal for developers and command-line power users.</p>
+                    <!-- Terminal Block -->
+                    <div class="rounded-lg bg-slate-950/80 border border-white/5 p-3 font-mono text-[10px] text-slate-300 mb-6">
+                        <div class="overflow-x-auto whitespace-nowrap">
+                            <span class="text-brand-400">$</span> brew install tnaoyak/tap/fuwari-secure
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center text-slate-500 text-[11px] py-2.5">
+                    Recommended for easy updates
+                </div>
+            </div>
+
+            <!-- Security Assurance Card -->
+            <div class="glass-card rounded-2xl p-6 flex flex-col justify-between border-white/5">
+                <div>
+                    <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-4">
+                        <i data-lucide="lock" class="w-5 h-5 text-emerald-400"></i>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">100% Offline Fork</h3>
+                    <p class="text-slate-400 text-[11px] leading-relaxed mb-4">
+                        Completely strips out external upload capabilities to meet strict corporate security standards.
                     </p>
-                    <ul class="space-y-3 text-slate-400 text-sm">
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong>100% Offline Operation</strong> (No external network requests)</span>
+                    <ul class="space-y-2 text-slate-400 text-xs">
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>No external network requests</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong>No Gyazo Uploads</strong> (Prevents accidental cloud data leaks)</span>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>No Gyazo cloud uploads</span>
                         </li>
-                        <li class="flex items-start gap-2.5">
-                            <i data-lucide="check" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5"></i>
-                            <span><strong>No Accounts or OAuth</strong> (No login required)</span>
+                        <li class="flex items-start gap-2">
+                            <i data-lucide="check" class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"></i>
+                            <span>No accounts or OAuth required</span>
                         </li>
                     </ul>
-                </div>
-                <div class="pt-6 border-t border-white/5 text-xs text-slate-500">
-                    Compliant with strict corporate data protection policies.
                 </div>
             </div>
         </div>
@@ -281,55 +299,61 @@
             <i data-lucide="terminal" class="w-7 h-7 text-brand-400"></i> Installation & Setup
         </h2>
 
-        <div class="space-y-6">
-            <!-- Step 1 -->
-            <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-sm font-bold text-brand-400 shrink-0">1</div>
-                <div>
-                    <h4 class="font-bold text-white mb-1">Drag to Applications</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed">Double-click the downloaded <code>Fuwari-Secure.dmg</code> file and drag the app icon into your <strong>Applications</strong> folder.</p>
+        <!-- Method Selection Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <!-- Homebrew Method -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                <h3 class="font-display font-bold text-white text-lg mb-4 flex items-center gap-2">
+                    <i data-lucide="terminal" class="w-5 h-5 text-brand-400"></i> Method A: Homebrew
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-4">The easiest way to install and keep updated. Run this command in your Terminal:</p>
+                <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 mb-4">
+                    <span class="text-brand-400">$</span> brew install tnaoyak/tap/fuwari-secure
                 </div>
+                <p class="text-slate-400 text-xs leading-relaxed">If you see a security warning on first launch, please run the quarantine removal command shown in the troubleshooting box below.</p>
             </div>
 
-            <!-- Step 2 -->
-            <div class="flex gap-4 items-start">
-                <div class="w-8 h-8 rounded-full bg-slate-900 border border-white/10 flex items-center justify-center text-sm font-bold text-brand-400 shrink-0">2</div>
-                <div>
-                    <h4 class="font-bold text-white mb-1">First-time Launch (Gatekeeper Bypass)</h4>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-2">Because the app is self-signed, double-clicking it normally will show a security warning. To bypass this:</p>
-                    <p class="text-slate-400 text-sm leading-relaxed"><strong>Right-click</strong> (or hold <code>Control</code> and click) <code>Fuwari-Secure.app</code> in your Applications folder, select <strong>Open</strong> from the menu, and then click <strong>Open</strong> again in the confirmation dialog.</p>
-                </div>
-            </div>
-
-            <!-- Troubleshooting Box -->
-            <div class="mt-10 p-6 rounded-2xl bg-red-500/5 border border-red-500/15">
-                <h4 class="font-display font-bold text-red-400 flex items-center gap-2 mb-3">
-                    <i data-lucide="alert-triangle" class="w-5 h-5"></i> Troubleshooting: "App is damaged" Warning
-                </h4>
-                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                    If macOS shows a warning saying "<strong>Fuwari-Secure is damaged and cannot be opened. You should move it to the Trash.</strong>", the app is <strong>not</strong> damaged. This is macOS's default behavior for downloaded self-signed apps.
-                </p>
-                <p class="text-slate-400 text-sm leading-relaxed mb-4">
-                    To fix this, you can easily remove the macOS quarantine attribute via Terminal:
-                </p>
-                
-                <!-- Terminal Block -->
-                <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 relative group">
-                    <div class="flex justify-between items-center mb-2 text-slate-500 text-[10px] uppercase tracking-wider">
-                        <span>Terminal Command</span>
-                        <span class="text-slate-600">Local Bypass</span>
-                    </div>
-                    <div class="overflow-x-auto whitespace-nowrap py-1">
-                        <span class="text-brand-400">$</span> xattr -cr /Applications/Fuwari-Secure.app
-                    </div>
-                </div>
-                
-                <ol class="list-decimal list-inside text-slate-400 text-sm mt-4 space-y-1.5">
-                    <li>Open the <strong>Terminal</strong> app on your Mac (via Spotlight: <code>Cmd + Space</code> and type "Terminal").</li>
-                    <li>Copy and paste the command above, then press <code>Enter</code>.</li>
-                    <li>Close the Terminal and launch <code>Fuwari-Secure.app</code> again. It will open perfectly!</li>
+            <!-- Manual Method -->
+            <div class="p-6 rounded-2xl bg-white/5 border border-white/5">
+                <h3 class="font-display font-bold text-white text-lg mb-4 flex items-center gap-2">
+                    <i data-lucide="download" class="w-5 h-5 text-brand-400"></i> Method B: Manual DMG
+                </h3>
+                <ol class="space-y-3 text-slate-400 text-sm list-decimal list-inside">
+                    <li>Download the latest DMG file from the CTA above.</li>
+                    <li>Double-click the DMG and drag <code>Fuwari-Secure.app</code> to your <strong>Applications</strong> folder.</li>
+                    <li><strong>Right-click</strong> the app in Applications, select <strong>Open</strong>, and click <strong>Open</strong> again to bypass Gatekeeper.</li>
                 </ol>
             </div>
+        </div>
+
+        <!-- Troubleshooting Box -->
+        <div class="p-6 rounded-2xl bg-red-500/5 border border-red-500/15">
+            <h4 class="font-display font-bold text-red-400 flex items-center gap-2 mb-3">
+                <i data-lucide="alert-triangle" class="w-5 h-5"></i> Troubleshooting: "App is damaged" Warning
+            </h4>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                If macOS shows a warning saying "<strong>Fuwari-Secure is damaged and cannot be opened. You should move it to the Trash.</strong>", the app is <strong>not</strong> damaged. This is macOS's default behavior for downloaded self-signed apps.
+            </p>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                To fix this, you can easily remove the macOS quarantine attribute via Terminal:
+            </p>
+            
+            <!-- Terminal Block -->
+            <div class="rounded-xl bg-slate-950 border border-white/10 p-4 font-mono text-xs text-slate-300 relative group">
+                <div class="flex justify-between items-center mb-2 text-slate-500 text-[10px] uppercase tracking-wider">
+                    <span>Terminal Command</span>
+                    <span class="text-slate-600">Local Bypass</span>
+                </div>
+                <div class="overflow-x-auto whitespace-nowrap py-1">
+                    <span class="text-brand-400">$</span> xattr -cr /Applications/Fuwari-Secure.app
+                </div>
+            </div>
+            
+            <ol class="list-decimal list-inside text-slate-400 text-sm mt-4 space-y-1.5">
+                <li>Open the <strong>Terminal</strong> app on your Mac (via Spotlight: <code>Cmd + Space</code> and type "Terminal").</li>
+                <li>Copy and paste the command above, then press <code>Enter</code>.</li>
+                <li>Close the Terminal and launch <code>Fuwari-Secure.app</code> again. It will open perfectly!</li>
+            </ol>
         </div>
     </section>
 
