@@ -16,6 +16,7 @@ jobs:
     - name: Show Xcode version
       run: xcodebuild -version
     - name: Install the Apple certificate and provisioning profile
+      if: ${{ secrets.BUILD_CERTIFICATE_BASE64 != '' }}
       env:
         BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
         P12_PASSWORD: ${{ secrets.P12_PASSWORD }}
@@ -50,17 +51,6 @@ jobs:
         echo "/usr/local/opt/make/libexec/gnubin" >> $GITHUB_PATH
 
     - uses: actions/checkout@v4
-
-    - uses: actions/cache@v4
-      id: carthage-cache
-      with:
-        path: Carthage
-        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
-
-    - name: Carthage
-      if: steps.carthage-cache.outputs.cache-hit != 'true'
-      run: |
-        carthage bootstrap --use-xcframeworks
 
     - name: Build and make dmg
       run: |

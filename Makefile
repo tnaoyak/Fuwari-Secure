@@ -17,18 +17,19 @@ endif
 
 ## ------------------------- Main part of the build file
 AppName := Fuwari
+RealAppName := Fuwari-Secure
 
 # Default - top level rule is what gets ran when you run just `make`
 build:
-> xcodebuild -scheme ${AppName} -target ${AppName} -configuration Debug
+> xcodebuild -scheme ${AppName} -configuration Debug
 .PHONY: build
 
-release: dist/${AppName}.app
+release: dist/${RealAppName}.app
 .PHONY: release
 
-install: dist/${AppName}.app
-> [ -e "/Applications/${AppName}.app" ] && trash /Applications/${AppName}.app
-> cp -a dist/${AppName}.app /Applications/${AppName}.app
+install: dist/${RealAppName}.app
+> [ -e "/Applications/${RealAppName}.app" ] && trash /Applications/${RealAppName}.app
+> cp -a dist/${RealAppName}.app /Applications/${RealAppName}.app
 .PHONY: install
 
 dmg: dist/${AppName}.dmg
@@ -43,20 +44,21 @@ artifacts:
 > mkdir -p artifacts
 
 artifacts/${AppName}.xcarchive: artifacts $(shell rg --files ${AppName} | sed 's: :\\ :g')
-> xcodebuild archive -archivePath $@ -scheme ${AppName} -target ${AppName} -configuration Release
+> xcodebuild archive -archivePath $@ -scheme ${AppName} -configuration Release
 
-dist/${AppName}.app: dist artifacts/${AppName}.xcarchive ExportOptions.plist
-> xcodebuild -exportArchive -archivePath './artifacts/${AppName}.xcarchive' -exportOptionsPlist ExportOptions.plist -exportPath dist/
+dist/${RealAppName}.app: dist artifacts/${AppName}.xcarchive
+> cp -R artifacts/${AppName}.xcarchive/Products/Applications/${RealAppName}.app dist/${RealAppName}.app
 > touch $@
 
-dist/${AppName}.dmg: dist/${AppName}.app
+dist/${AppName}.dmg: dist/${RealAppName}.app
+> rm -f $@
 > create-dmg \
->   --volname "${AppName} Installer" \
+>   --volname "${RealAppName} Installer" \
 >   --window-pos 200 120 \
 >   --window-size 500 400 \
 >   --icon-size 100 \
->   --icon "${AppName}.app" 100 100 \
->   --hide-extension "${AppName}.app" \
+>   --icon "${RealAppName}.app" 100 100 \
+>   --hide-extension "${RealAppName}.app" \
 >   --app-drop-link 300 100 \
 >   "$@" \
 >   "dist/"
